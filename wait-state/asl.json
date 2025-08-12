@@ -1,0 +1,21 @@
+{
+    "Comment": "Wait State Example State Machine",
+    "StartAt": "Wait 3 Seconds",
+    "States":{
+        "Wait 3 Seconds": {
+            "Type": "Wait",
+            "Seconds": 3,
+            "Next": "Wait Until Particular TimeStamp"
+        },
+        "Wait Until Particular TimeStamp": {
+            "Type": "Wait",
+            "Timestamp": "2023-10-01T00:00:00Z",
+            "Next": "Final State"
+        },
+        "Dynaic Wait": {
+            "Type": "Wait",
+            "SecondsPath": "$.waitTime",
+            "End": true
+        }
+    }
+}
